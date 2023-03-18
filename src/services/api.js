@@ -7,33 +7,22 @@ const options = {
   headers: { Authorization: `Bearer ${TOKEN}` },
 };
 export const fetchCourses = async () => {
-  try {
-    const { data } = await axios.get('core/preview-courses', options);
-    const result = data.courses.map(
-      ({ id, title, lessonsCount, previewImageLink, rating, meta }) => ({
-        id,
-        title,
-        lessonsCount,
-        previewImageLink,
-        rating,
-        meta,
-      })
-    );
-    return result;
-  } catch (error) {
-    console.log(error);
-  }
+  const { data } = await axios.get('core/preview-courses', options);
+  const result = data.courses.map(
+    ({ id, title, lessonsCount, previewImageLink, rating, meta }) => ({
+      id,
+      title,
+      lessonsCount,
+      previewImageLink,
+      rating,
+      meta,
+    })
+  );
+  return result;
 };
 
 export const fetchCourseId = async courseId => {
-  try {
-    const { data } = await axios.get(
-      `core/preview-courses/${courseId}`,
-      options
-    );
-    const { id, title, description, meta, lessons } = data;
-    return { id, title, description, meta, lessons };
-  } catch (error) {
-    console.log(error);
-  }
+  const { data } = await axios.get(`core/preview-courses/${courseId}`, options);
+  const { id, title, description, meta, lessons } = data;
+  return { id, title, description, meta, lessons };
 };

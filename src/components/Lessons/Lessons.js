@@ -1,16 +1,15 @@
-import { Image, Link, Title } from './Lessons.styled';
+import { Image, Link } from './Lessons.styled';
 import { TfiLock } from 'react-icons/tfi';
 
 export const Lessons = ({ lessons, onSelect }) => {
   return (
     <>
-      <Title>Lessons</Title>
       <ul>
         {lessons &&
           lessons.map(
             ({ id, title, link, status, order, previewImageLink }) => (
               <li key={id}>
-                <Link onClick={() => onSelect(link, status)}>
+                <Link onClick={() => onSelect(link, status, title)}>
                   <Image
                     src={`${previewImageLink}/lesson-${order}.webp`}
                     alt="poster"

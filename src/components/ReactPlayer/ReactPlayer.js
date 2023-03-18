@@ -1,13 +1,7 @@
-import { PlayerWrapper, StyledPlayer } from './ReactPlayer.styled';
+import ReactPlayer from 'react-player';
 
 export const Player = ({ link }) => {
   return (
-    <>
-      {link && (
-        <PlayerWrapper>
-          <StyledPlayer url={link} width="30%" height="30%" controls />
-        </PlayerWrapper>
-      )}
-    </>
+    <>{link && <ReactPlayer url={link} width="40%" height="40%" controls />}</>
   );
 };

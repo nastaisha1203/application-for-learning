@@ -5,8 +5,8 @@ import { fetchCourseId } from 'services/api';
 import { Loader } from 'components/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { Text } from 'components/Layout/Layout.styled';
 import BackLink from 'components/BackLink/BackLink';
+import { Error } from './Courses.styled';
 
 const CourseDetails = () => {
   const { courseId } = useParams();
@@ -25,7 +25,7 @@ const CourseDetails = () => {
         const result = await fetchCourseId(courseId);
         setCourse(result);
       } catch (error) {
-        setError(error);
+        setError(true);
       } finally {
         setIsLoading(false);
       }
@@ -37,7 +37,7 @@ const CourseDetails = () => {
     <div>
       <BackLink to={backLinkHref}>Go back</BackLink>
       {isLoading && <Loader />}
-      {error && <p>Something went wrong. Try again.</p>}
+      {error && <Error>Something went wrong. Try again.</Error>}
       <ToastContainer position="top-right" theme="dark" />
       {course && <Card course={course} />}
     </div>

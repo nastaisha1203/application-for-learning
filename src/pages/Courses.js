@@ -1,7 +1,7 @@
 import CoursesList from 'components/CoursesList/CoursesList';
 import { useEffect, useState } from 'react';
 import { fetchCourses } from 'services/api';
-import { Title } from './Courses.styled';
+import { Error, Title } from './Courses.styled';
 import { Loader } from 'components/Loader/Loader';
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -15,7 +15,7 @@ const Courses = () => {
         const results = await fetchCourses();
         setCourses(results);
       } catch (error) {
-        setError(error);
+        setError(true);
       } finally {
         setIsLoading(false);
       }
@@ -26,7 +26,7 @@ const Courses = () => {
     <>
       <Title>List of courses</Title>
       {isLoading && <Loader />}
-      {error && <p>Something went wrong. Try again.</p>}
+      {error && <Error>Something went wrong. Try again.</Error>}
       {courses.length > 0 && <CoursesList courses={courses} />}
     </>
   );

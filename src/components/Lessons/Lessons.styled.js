@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const Title = styled.h3`
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 20px;
-`;
 export const Link = styled.div`
   width: 400px;
   display: inline-flex;
@@ -20,5 +15,6 @@ export const Link = styled.div`
 `;
 export const Image = styled.img`
   width: 70px;
+  height: 35px;
   display: inline;
 `;
