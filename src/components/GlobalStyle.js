@@ -29,7 +29,7 @@ img {
 ul {
  list-style: none;
 }
-p, h2, ol, ul, h3 {
+p, h1, h2, ol, ul, h3 {
   margin: 0;
   padding: 0;
 }

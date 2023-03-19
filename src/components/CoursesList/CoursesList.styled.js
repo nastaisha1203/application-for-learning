@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Box = styled.main`
-  padding: 16px;
+  /* padding: 0 16px; */
 `;
 
 export const List = styled.ul`
@@ -10,6 +10,7 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+  margin-bottom: 50px;
 `;
 export const Item = styled.li`
   width: 450px;
