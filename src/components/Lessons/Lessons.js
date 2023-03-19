@@ -9,7 +9,7 @@ export const Lessons = ({ lessons, onSelect }) => {
           lessons.map(
             ({ id, title, link, status, order, previewImageLink }) => (
               <li key={id}>
-                <Link onClick={() => onSelect(link, status, title)}>
+                <Link onClick={() => onSelect(id, link, status, title)}>
                   <Image
                     src={`${previewImageLink}/lesson-${order}.webp`}
                     alt="poster"

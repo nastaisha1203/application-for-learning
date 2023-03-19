@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Box = styled.main`
-  /* padding: 0 16px; */
-`;
-
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -46,16 +42,7 @@ export const Span = styled.span`
   font-weight: 400;
   color: black;
 `;
-// export const Skill = styled.span`
-//   display: inline-block;
-//   background-color: #a9a6b833;
-//   padding: 3px 6px;
-//   border-radius: 6px;
-//   &:not(:last-child) {
-//     margin-bottom: 8px;
-//     margin-right: 8px;
-//   }
-// `;
+
 export const Image = styled.img`
   height: 200px;
   object-fit: cover;

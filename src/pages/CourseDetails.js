@@ -6,7 +6,7 @@ import { Loader } from 'components/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BackLink from 'components/BackLink/BackLink';
-import { Error } from './Courses.styled';
+import { Box, Error } from './Courses.styled';
 
 const CourseDetails = () => {
   const { courseId } = useParams();
@@ -34,13 +34,15 @@ const CourseDetails = () => {
   }, [courseId]);
 
   return (
-    <div>
+    <>
       <BackLink to={backLinkHref}>Go back</BackLink>
-      {isLoading && <Loader />}
-      {error && <Error>Something went wrong. Try again.</Error>}
-      <ToastContainer position="top-right" theme="dark" />
-      {course && <Card course={course} />}
-    </div>
+      <Box>
+        {isLoading && <Loader />}
+        {error && <Error>Something went wrong. Try again.</Error>}
+        <ToastContainer position="top-right" theme="dark" />
+        {course && <Card course={course} />}
+      </Box>
+    </>
   );
 };
 

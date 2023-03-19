@@ -1,10 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
+import img from 'img/5.jpg';
 
 export const GlobalStyle = createGlobalStyle`
  html {
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
 }
 *,
@@ -14,6 +15,11 @@ export const GlobalStyle = createGlobalStyle`
 }
 body {
   margin: 0;
+  min-height: 100vh;
+    background-image: url(${img});
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   color: #000;

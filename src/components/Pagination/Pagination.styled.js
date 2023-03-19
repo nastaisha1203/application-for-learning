@@ -15,7 +15,10 @@ export const Button = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 5px;
+  border: none;
+  transition: background-color 0.25s ease-in;
   &:hover,
   &:focus {
     background-color: #ff6b08;
@@ -23,8 +26,3 @@ export const Button = styled.button`
     border-radius: 5px;
   }
 `;
-
-// &:hover,
-//   &:focus {
-//     background-color: #ff6b01;
-//   }

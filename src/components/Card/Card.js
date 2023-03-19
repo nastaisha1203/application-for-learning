@@ -17,8 +17,9 @@ import { toast } from 'react-toastify';
 const Card = ({ course }) => {
   const [isVideo, setIsVideo] = useState('');
   const [isTitle, setIsTitle] = useState('');
+  const [lessonId, setLessonId] = useState('');
 
-  const selectVideo = (link, status, title) => {
+  const selectVideo = (id, link, status, title) => {
     if (!link) {
       return toast.warning('Video not found!');
     }
@@ -27,12 +28,20 @@ const Card = ({ course }) => {
       return toast.warning('Video is blocked!');
     }
     setIsTitle(title);
+    setLessonId(id);
+  };
+
+  const storeVideoProgress = position => {
+    const progressData =
+      JSON.parse(localStorage.getItem('progressVideo')) || {};
+
+    progressData[course.id] = position;
+    localStorage.setItem('progressVideo', JSON.stringify(progressData));
   };
 
   const { title, description, meta, lessons } = course;
   return (
     <Box>
-      <Title>{title}</Title>
       <CardCourse>
         {meta.courseVideoPreview && (
           <ReactPlayer
@@ -41,15 +50,21 @@ const Card = ({ course }) => {
             height="30%"
             controls
             preload="auto"
+            onProgress={({ playedSeconds }) =>
+              storeVideoProgress(playedSeconds)
+            }
           />
         )}
-        <Text>{description}</Text>
+        <div>
+          <Title>{title}</Title>
+          <Text>{description}</Text>
+        </div>
       </CardCourse>
       <TitleLessons>Lessons</TitleLessons>
       {isVideo && <TitleVideo>Selected video: {isTitle}</TitleVideo>}
       <Section>
         <Lessons lessons={lessons} onSelect={selectVideo} />
-        <Player link={isVideo} />
+        <Player link={isVideo} lessonId={lessonId} />
       </Section>
     </Box>
   );

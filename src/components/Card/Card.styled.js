@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Box = styled.main`
-  padding: 16px;
+  /* padding: 16px; */
 `;
 
 export const CardCourse = styled.div`
@@ -13,6 +13,7 @@ export const CardCourse = styled.div`
 export const Title = styled.h2`
   text-align: center;
   font-size: 36px;
+  text-shadow: 1px 1px 2px white;
   color: black;
   margin-bottom: 20px;
 `;
@@ -20,6 +21,8 @@ export const Title = styled.h2`
 export const TitleLessons = styled.h3`
   text-align: center;
   font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 400;
   margin-bottom: 20px;
 `;
 export const TitleVideo = styled.p`

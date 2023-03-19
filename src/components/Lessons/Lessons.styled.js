@@ -6,6 +6,7 @@ export const Link = styled.div`
   align-items: center;
   gap: 9px;
   padding: 7px;
+  background-color: rgb(153 98 102 / 50%);
   margin-bottom: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   &:hover {
